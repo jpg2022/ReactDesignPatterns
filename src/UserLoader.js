@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-export const CurrentUserLoader = ({ children }) => {
-  const { user, setuser } = useState(null);
+export const UserLoader = ({ userID, children }) => {
+  const { user, setUser } = useState(null);
   useEffect(() => {
     (async () => {
-      const response = await axios.get("/current-user");
+      const response = await axios.get(`/users/${userID}`);
       const currentUser = response.data;
-      setuser(currentUser);
+      setUser(currentUser);
     })();
-  }, []);
+  }, [userID]);
 
   return (
     //for each child inside the "children"

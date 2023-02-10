@@ -1,9 +1,8 @@
-import { UncontrolledForm } from './UncontrolledForm';
+import { ControlledForm } from "./ControlledForm";
+import { UncontrolledForm } from "./UncontrolledForm";
 
 function App() {
-	return (
-		<UncontrolledForm />
-	);
+  return <ControlledForm />;
 }
 
 export default App;

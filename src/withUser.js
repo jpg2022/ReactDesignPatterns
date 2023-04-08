@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+// axios.defaults.baseURL = "http://localhost:8081";
 
 export const withUser = (Component, userId) => {
   return (props) => {
@@ -7,11 +8,11 @@ export const withUser = (Component, userId) => {
 
     useEffect(() => {
       console.log("loaded");
-      async () => {
+      (async () => {
         const response = await axios.get(`/users/${userId}`);
         setUser(response.data);
-      };
-    })();
+      })();
+    }, []);
 
     return <Component {...props} user={user} />;
   };
